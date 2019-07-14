@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8"></meta>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+<meta name="viewport" content="width=device-width, initial-scale=1"></meta>
+
+<meta name="description" content=""></meta>
+<meta name="author" content=""></meta>
+<link rel="icon" th:href="@{favicon.ico}"></link>
+
+<title>Employee Management</title>
+
+<script th:src="@{js/pace.min.js}"></script>
+<link th:href="@{/css/bootstrap.min.css}" rel="stylesheet"></link>
+<link th:href="@{/css/font-awesome.min.css}" rel="stylesheet"></link>
+<link th:href="@{/css/bootstrap-material-design.css}" rel="stylesheet"></link>
+<link th:href="@{/css/ripples.min.css}" rel="stylesheet"></link>
+<link th:href="@{/css/material-scrolltop.css}" rel="stylesheet"></link>
+<link th:href="@{css/material-blog.css}" rel="stylesheet"></link>
+<link
+	th:href="@{https://fonts.googleapis.com/css?family=Roboto:300,400,500,700}"
+	rel="stylesheet" type="text/css" />
+<link
+	th:href="@{https://fonts.googleapis.com/icon?family=Material+Icons}"
+	rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<h2 class="blog-post-title" align="center">Employee Update</h2>
+	<form class="form-horizontal style-form" th:action="@{/updateEmployee}"
+		th:object="${updateEmployee}" method="POST">
+		<input type="hidden" th:field="*{id}" />
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-2 control-label">First Name</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" th:field="*{firstName}" />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-2 control-label">Last Name</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" th:field="*{lastName}" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" th:field="*{email}" />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-2 control-label">Office Code</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" th:field="*{officeCode}" />
+			</div>
+		</div>
+		
+		<div class="form-group">
+			<label class="col-sm-2 col-sm-2 control-label">Job Title</label>
+			<div class="col-sm-10">
+				<input type="text" class="form-control" th:field="*{jobTitle}" />
+			</div>
+		</div>
+
+		<input class="btn btn-primary" type="submit" value="Update" /> <a
+			th:href="@{/update/{id}(id=${updateEmployee.id})}"
+			class="btn btn-warning">Cancel</a>
+	</form>
+<div th:replace="footer::footer"></div>
+	<script th:src="@{js/jquery-1.11.3.min.js}"></script>
+	<script th:src="@{js/bootstrap.min.js}"></script>
+	<script th:src="@{js/ripples.min.js}"></script>
+	<script th:src="@{js/material.min.js}"></script>
+	<script th:src="@{js/material-scrolltop.js}"></script>
+	<script th:src="@{js/main.js}"></script>
+
+	<script>
+		$.material.init();
+		$('body').materialScrollTop();
+	</script>
+</body>
+</html>
